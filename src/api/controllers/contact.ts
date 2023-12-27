@@ -25,5 +25,6 @@ export class ContactC {
                    return response(res, 404, "An error occured find contact list", false);
         }
     }
+    
 }
  

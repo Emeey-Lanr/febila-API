@@ -18,7 +18,6 @@ class ContactS {
             try {
                 payload = Object.assign({ contact_id: `${process.env.CONTACT_ID}` }, payload);
                 const checkifEmailExist = yield (0, duplicationCheck_1.duplicationCheckFunc)(contact_1.contactModel, { email: payload.email });
-                console.log(checkifEmailExist);
                 if (checkifEmailExist) {
                     return new Error("Email already exist");
                 }
@@ -26,7 +25,6 @@ class ContactS {
                 const saveContact = yield createNewContact.save();
             }
             catch (error) {
-                console.log(error);
                 return new Error("An error occured");
             }
         });
