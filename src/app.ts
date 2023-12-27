@@ -5,6 +5,7 @@ import { appMiddleware } from "./api/middleware/app.middleware";
 const app: Express = express()
 dotenv.config()
 appMiddleware(app)
+let PORT = process.env.PORT_NUMBER;
 
 
 
@@ -12,7 +13,7 @@ appMiddleware(app)
 
 
 
-app.listen(Number(process.env.PORT_NUMBER), async () => {
+app.listen(PORT, async () => {
   try {
     const connect = await mongoose.connect(`${process.env.URI}`)
     console.log(`App has connected on port  ${process.env.PORT_NUMBER} `);
